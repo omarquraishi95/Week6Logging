@@ -12,21 +12,22 @@ class Company:
             logging.info("You have added  {} {} into the employee database; Email: {}".format(self.firstName,self.lastName,self.generateEmail()))
         elif self.firstName == "" or self.lastName == "":
             logging.warning("You have added  {} {} into the employee database; Email: {}".format(self.firstName,self.lastName,self.generateEmail()))
+        else:
+            logging.error("ERROR HAS OCCURRED!")
+            logging.error("Please correct the fields of First Name and Last Name to fix the error!")
 
 
     def newEmployee(self):
         return '{} {} was added in the employee database'.format(self.firstName,self.lastName)
 
     def generateID(self):
-        id = self.firstName[0] + self.lastName + random.sample(random.randint(10),1)
+        id = self.firstName[0] + self.lastName + random.sample(random.randint(100000000), 1)
 
         return 'Hello {} {}, your id number is {}'.format(self.firstName,self.lastName,id)
 
     def generateEmail(self):
         email = "{}.{}@python.com".format(self.firstName,self.lastName)
         return 'Hello {} {}, your email address is {}'.format(self.firstName,self.lastName,email)
-
-
 
 employee1 = Company("John","Jones")
 
